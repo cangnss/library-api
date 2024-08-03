@@ -1,0 +1,21 @@
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { User } from "./User.entity";
+import { Book } from "./Book.entity";
+
+@Entity()
+export class Borrow {
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @ManyToOne(() => User, (user) => user.borrowings)
+  user: User;
+
+  @ManyToOne(() => Book, (book) => book.borrowings)
+  book: Book;
+
+  @Column()
+  borrowedAt: Date;
+
+  @Column({ nullable: true })
+  returnedAt: Date;
+}

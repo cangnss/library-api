@@ -1,8 +1,8 @@
 import { AppDataSource } from "./data-source"
-import { User } from "./entity/User"
 import * as express from "express"
 import { Express } from "express"
 import "reflect-metadata";
+import { userRoute } from "./routes/user.routes"
 const app: Express = express()
 
 const PORT = process.env.PORT || 8001
@@ -13,6 +13,7 @@ AppDataSource.initialize().then(async () => {
 
 }).catch(error => console.log(error))
 
+app.use("/users", userRoute)
 
 
 app.listen(PORT, () => {
