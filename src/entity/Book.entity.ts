@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, JoinColumn } from "typeorm";
 import { Borrow } from "./Borrow.entity";
 
 @Entity("books")
@@ -16,5 +16,6 @@ export class Book {
   ratingCount: number;
 
   @OneToMany(() => Borrow, (borrowing) => borrowing.book)
+  @JoinColumn({ name: "borrow_id" })
   borrowings: Borrow[];
 }

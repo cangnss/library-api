@@ -3,9 +3,11 @@ import { AppDataSource } from "../data-source";
 import { getRepository } from 'typeorm';
 import { User } from "../entity/User.entity";
 import { Book } from "../entity/Book.entity";
+import { Borrow } from "../entity/Borrow.entity";
 
 export class BookController {
     private bookRepository = AppDataSource.getRepository(Book);
+    private borrowRepository = AppDataSource.getRepository(Borrow);
 
     getBooks = async (req: Request, res: Response) => {
         try {
@@ -16,8 +18,7 @@ export class BookController {
                 return res.status(404).send({ success: false, message: "No books found!", data: [] });
             }
         } catch (error) {
-            console.log("error: ", error)
-            res.status(500).send(error)
+            return res.status(500).send({ success: false, message: "Internal server error", error });
         }
     }
 
@@ -31,21 +32,35 @@ export class BookController {
             return res.status(201).send({ success: true, message: "Book is added!", data: book })
 
         } catch (error) {
-            res.status(500).send(error)
+            return res.status(500).send({ success: false, message: "Internal server error", error });
         }
     }
 
-    getBook = async (req: Request, res:Response) => {
+    getBook = async (req: Request, res: Response) => {
         try {
-            const book = await this.bookRepository.findOneBy({ id: parseInt(req.params.bookId) })
-            if (book == null) {
-                res.status(404).send({ success: false, message: "Book not found!" })
-            }else{
-                res.status(200).send({ success: true, data: book })
+            const bookId = parseInt(req.params.bookId);
+    
+            const book = await this.bookRepository.findOne({ where: { id: bookId } });
+    
+            if (!book) {
+                return res.status(404).send({ success: false, message: "Book not found!" });
             }
-            
+    
+            const { averageScore } = await this.borrowRepository
+                .createQueryBuilder("borrow")
+                .select("AVG(borrow.rating)", "averageScore")
+                .where("borrow.book = :bookId", { bookId })
+                .getRawOne();
+    
+            const response = {
+                id: book.id,
+                name: book.name,
+                score: averageScore ? parseFloat(averageScore).toFixed(2) : -1,
+            };
+    
+            return res.status(200).send({ success: true, data: response });
         } catch (error) {
-            res.status(500).send(error)
+            return res.status(500).send({ success: false, message: "Internal server error", error });
         }
     }
 }
