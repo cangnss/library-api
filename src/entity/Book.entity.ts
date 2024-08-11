@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
 import { Borrow } from "./Borrow.entity";
 
-@Entity()
+@Entity("books")
 export class Book {
   @PrimaryGeneratedColumn()
   id: number;

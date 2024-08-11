@@ -708,3 +708,157 @@
   message: 'HTTP POST /users/2/return/5',
   timestamp: '2024-08-11T13:35:47.520Z'
 }
+{
+  meta: {
+    req: {
+      url: '/users',
+      headers: {
+        'content-type': 'application/json',
+        'user-agent': 'PostmanRuntime/7.41.0',
+        accept: '*/*',
+        'cache-control': 'no-cache',
+        'postman-token': '32bcf4ed-90cf-4f4c-938a-5b643e65f753',
+        host: 'localhost:3000',
+        'accept-encoding': 'gzip, deflate, br',
+        connection: 'keep-alive',
+        'content-length': '25'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/users',
+      query: {}
+    },
+    res: { statusCode: 201 },
+    responseTime: 43
+  },
+  level: 'info',
+  message: 'HTTP POST /users',
+  timestamp: '2024-08-11T20:43:50.574Z'
+}
+{
+  meta: {
+    req: {
+      url: '/users',
+      headers: {
+        'user-agent': 'PostmanRuntime/7.41.0',
+        accept: '*/*',
+        'cache-control': 'no-cache',
+        'postman-token': '20c4adde-84b2-4c60-82f8-30b5427dc1b4',
+        host: 'localhost:3000',
+        'accept-encoding': 'gzip, deflate, br',
+        connection: 'keep-alive'
+      },
+      method: 'GET',
+      httpVersion: '1.1',
+      originalUrl: '/users',
+      query: {}
+    },
+    res: { statusCode: 200 },
+    responseTime: 4
+  },
+  level: 'info',
+  message: 'HTTP GET /users',
+  timestamp: '2024-08-11T20:44:00.342Z'
+}
+{
+  meta: {
+    req: {
+      url: '/users',
+      headers: {
+        'user-agent': 'PostmanRuntime/7.41.0',
+        accept: '*/*',
+        'cache-control': 'no-cache',
+        'postman-token': '73add5a7-5520-41d0-8a5b-e64ee8516c5d',
+        host: 'localhost:3000',
+        'accept-encoding': 'gzip, deflate, br',
+        connection: 'keep-alive'
+      },
+      method: 'GET',
+      httpVersion: '1.1',
+      originalUrl: '/users',
+      query: {}
+    },
+    res: { statusCode: 200 },
+    responseTime: 7
+  },
+  level: 'info',
+  message: 'HTTP GET /users',
+  timestamp: '2024-08-11T20:44:40.334Z'
+}
+{
+  meta: {
+    req: {
+      url: '/users/2',
+      headers: {
+        'user-agent': 'PostmanRuntime/7.41.0',
+        accept: '*/*',
+        'cache-control': 'no-cache',
+        'postman-token': 'abb1ad9b-76b5-4fb2-94d3-c7130d3e0899',
+        host: 'localhost:3000',
+        'accept-encoding': 'gzip, deflate, br',
+        connection: 'keep-alive'
+      },
+      method: 'GET',
+      httpVersion: '1.1',
+      originalUrl: '/users/2',
+      query: {}
+    },
+    res: { statusCode: 404 },
+    responseTime: 4
+  },
+  level: 'warn',
+  message: 'HTTP GET /users/2',
+  timestamp: '2024-08-11T20:44:47.911Z'
+}
+{
+  meta: {
+    req: {
+      url: '/books',
+      headers: {
+        'user-agent': 'PostmanRuntime/7.41.0',
+        accept: '*/*',
+        'cache-control': 'no-cache',
+        'postman-token': '8d8b5c94-bb6a-438e-963e-7fabfaa17970',
+        host: 'localhost:3000',
+        'accept-encoding': 'gzip, deflate, br',
+        connection: 'keep-alive'
+      },
+      method: 'GET',
+      httpVersion: '1.1',
+      originalUrl: '/books',
+      query: {}
+    },
+    res: { statusCode: 404 },
+    responseTime: 33
+  },
+  level: 'warn',
+  message: 'HTTP GET /books',
+  timestamp: '2024-08-11T20:44:59.264Z'
+}
+{
+  meta: {
+    req: {
+      url: '/books',
+      headers: {
+        'content-type': 'application/json',
+        'user-agent': 'PostmanRuntime/7.41.0',
+        accept: '*/*',
+        'cache-control': 'no-cache',
+        'postman-token': 'b17d0e5d-1b20-4f2b-ace9-f0f4d2889f3a',
+        host: 'localhost:3000',
+        'accept-encoding': 'gzip, deflate, br',
+        connection: 'keep-alive',
+        'content-length': '32'
+      },
+      method: 'POST',
+      httpVersion: '1.1',
+      originalUrl: '/books',
+      query: {}
+    },
+    res: { statusCode: 201 },
+    responseTime: 8
+  },
+  level: 'info',
+  message: 'HTTP POST /books',
+  timestamp: '2024-08-11T20:45:07.474Z'
+}

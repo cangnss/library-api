@@ -14,8 +14,9 @@ export class UserController {
             const users = await this.userRepository.find();
             if (users.length > 0) {
                 res.status(200).send({ success: true, message: "All users listed!", data: users })
+            }else{
+                res.status(404).send({ success: false, message: "User not found!", data: [] })
             }
-            res.status(404).send({ success: false, message: "User not found!", data: [] })
         } catch (error) {
             console.error(error);
             res.status(500).send(error)
