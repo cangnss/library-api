@@ -1,8 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
 import { Borrow } from "./Borrow.entity";
-import { Rate } from "./Rate.entity";
 
-@Entity()
+@Entity("books")
 export class Book {
   @PrimaryGeneratedColumn()
   id: number;
@@ -10,9 +9,12 @@ export class Book {
   @Column()
   name: string;
 
+  @Column("float", { default: 0 })
+  rating: number;
+
+  @Column("int", { default: 0 })
+  ratingCount: number;
+
   @OneToMany(() => Borrow, (borrowing) => borrowing.book)
   borrowings: Borrow[];
-
-  @OneToMany(() => Rate, (rating) => rating.book)
-  ratings: Rate[];
 }

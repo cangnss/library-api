@@ -4,7 +4,6 @@ import * as dotenv from "dotenv";
 import { User } from "./entity/User.entity"
 import { Book } from "./entity/Book.entity"
 import { Borrow } from "./entity/Borrow.entity"
-import { Rate } from "./entity/Rate.entity"
 dotenv.config();
 
 
@@ -18,7 +17,7 @@ export const AppDataSource = new DataSource({
     database: process.env.POSTGRES_DB_NAME,
     synchronize: true,
     logging: false,
-    entities: [User, Book, Borrow, Rate],
+    entities: [User, Book, Borrow],
     migrations: [],
     subscribers: [],
 })
