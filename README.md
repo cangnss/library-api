@@ -14,7 +14,6 @@ This is a RESTful API for managing a library, including users, books, and the bo
 - List all books.
 - View book details, including name and average rating.
 - Create a new book.
-- Borrowing & Returning Books:
 
 ### Borrow Management
 - Return a book and provide a rating.
