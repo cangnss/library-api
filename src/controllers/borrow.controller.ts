@@ -10,13 +10,12 @@ export class BorrowController {
         try {
             const borrows = await this.borrowRepository.find();
             if (borrows.length > 0) {
-                res.status(200).send({ success: true, message: "All borrows listed!", data: borrows })
+                return res.status(200).send({ success: true, message: "All borrows listed!", data: borrows })
             }else{
-                res.status(404).send({ success: false, message: "Borrow not found!", data: [] })
+                return res.status(404).send({ success: false, message: "Borrow not found!", data: [] })
             }
         } catch (error) {
-            console.error(error);
-            res.status(500).send(error)
+            return res.status(500).send({ success: false, message: "Internal server error", error });
         }
     }
 }

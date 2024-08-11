@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from "typeorm";
 import { User } from "./User.entity";
 import { Book } from "./Book.entity";
 
@@ -8,10 +8,12 @@ export class Borrow {
   id: number;
 
   @ManyToOne(() => User, (user) => user.borrowings)
-  user: number;
+  @JoinColumn({ name: "user_id" })
+  user: User;
 
   @ManyToOne(() => Book, (book) => book.borrowings)
-  book: number;
+  @JoinColumn({ name: "book_id" })
+  book: Book;
 
   @Column()
   borrowDate: Date;
