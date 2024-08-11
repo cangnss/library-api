@@ -8,14 +8,17 @@ export class Borrow {
   id: number;
 
   @ManyToOne(() => User, (user) => user.borrowings)
-  user: User;
+  user: number;
 
   @ManyToOne(() => Book, (book) => book.borrowings)
-  book: Book;
+  book: number;
 
   @Column()
-  borrowedAt: Date;
+  borrowDate: Date;
 
   @Column({ nullable: true })
-  returnedAt: Date;
+  returnDate: Date;
+
+  @Column({ nullable: true, default: 0 })
+  rating: number;
 }
